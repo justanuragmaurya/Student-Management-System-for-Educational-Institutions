@@ -3,79 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/attendance.css">
+    
     <title>Student Attendance</title>
+    <style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+
+.header {
+    min-height: 100vh;
+  width: 95%;
+  height: 20%;
+  background-position: top;
+  position: fixed;
+  
+}
+
+.header a img {
+  border-radius: 10px;
+}
+
+nav {
+  display: flex;
+  padding: 2% 6%;
+  justify-content: space-between;
+  align-items: center;
+}
+nav img {
+  width: 150px;
+}
+.nav-links {
+  flex: 1;
+  text-align: right;
+}
+.nav-links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+.nav-links ul li a {
+  color: #0f0c0c;
+  text-decoration: none;
+  font-size: 13px;
+}
+.nav-links ul li::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #f44336;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+.nav-links ul li:hover::after {
+  width: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("../images/hogwarts.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+        }
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: #fff;
+}
+
+th {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+    
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Attendance Tracking System</h1>
+    <div class="header">
         <nav>
+          <a href="index.html"
+            ><img
+              src="../images/logo.jpg"
+          /></a>
+          <div class="nav-links">
             <ul>
-                    <li><a href="../html/index.html">HOME</a></li>
-                    <li><a href="../html/attendance.html">ATTENDANCE</a></li>
-                    <li><a href="../html/timetable.html">TIMETABLE</a></li>
-                    <li><a href="../html/assistance.html">ASSISTANCE</a></li>
-                    <li><a href="../html/contact.html">CONTACT</a></li>
+              <li><a href="./CONTENT/html/index.html"><b>HOME</b></a></li>
+              <li><a href="./CONTENT/html/attendance.html"><b>ATTENDANCE</b></a></li>
+              <li><a href="./CONTENT/html/timetable.html"><b>TIMETABLE</b></a></li>
+              <li><a href="./CONTENT/html/assistance.html"><b>ASSISTANCE</b></a></li>
+              <li><a href="./CONTENT/html/contact.html"><b>CONTACT</b></a></li>
             </ul>
+          </div>
         </nav>
-    </header>
-    
-    <h2>Your Attendance</h2>
+      </div>
 
-    <div class="table-container">
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>CSE326</th>
-                <th>MTH174</th>
-                <th>ECE249</th>
-                <th>ECE279</th>
-            </tr>
-            <tr>
-                <td>2023-11-01</td>
-                <td>Present</td>
-                <td>Absent</td>
-                <td>Present</td>
-                <td>Absent</td>
-            </tr>
-            <tr>
-                <td>2023-11-02</td>
-                <td>Present</td>
-                <td>Present</td>
-                <td>Absent</td>
-                <td>Present</td>
-            </tr>
-            <tr>
-                <td>2023-11-03</td>
-                <td>Absent</td>
-                <td>Present</td>
-                <td>Absent</td>
-                <td>Present</td>
-            </tr>
-            <tr>
-                <td>2023-11-04</td>
-                <td>Present</td>
-                <td>Absent</td>
-                <td>Present</td>
-                <td>Absent</td>
-            </tr>
-            <tr>
-                <td>2023-11-05</td>
-                <td>Absent</td>
-                <td>Present</td>
-                <td>Present</td>
-                <td>Absent</td>
-            </tr>
-            <tr>
-                <td>2023-11-06</td>
-                <td>Present</td>
-                <td>Absent</td>
-                <td>Present</td>
-                <td>Absent</td>
-            </tr>
-        </table>
-    </div>
+
+      <table>
+        <tr>
+            <th>Date</th>
+            <th>CSE326</th>
+            <th>MTH174</th>
+            <th>ECE249</th>
+            <th>ECE279</th>
+        </tr>
+        <tr>
+            <td>2023-11-01</td>
+            <td>Present</td>
+            <td>Absent</td>
+            <td>Present</td>
+            <td>Absent</td>
+        </tr>
+        <tr>
+            <td>2023-11-02</td>
+            <td>Present</td>
+            <td>Present</td>
+            <td>Absent</td>
+            <td>Present</td>
+        </tr>
+        <tr>
+            <td>2023-11-03</td>
+            <td>Absent</td>
+            <td>Present</td>
+            <td>Absent</td>
+            <td>Present</td>
+        </tr>
+        <tr>
+            <td>2023-11-04</td>
+            <td>Present</td>
+            <td>Absent</td>
+            <td>Present</td>
+            <td>Absent</td>
+        </tr>
+        <tr>
+            <td>2023-11-05</td>
+            <td>Absent</td>
+            <td>Present</td>
+            <td>Present</td>
+            <td>Absent</td>
+        </tr>
+        <tr>
+            <td>2023-11-06</td>
+            <td>Present</td>
+            <td>Absent</td>
+            <td>Present</td>
+            <td>Absent</td>
+        </tr>
+    </table>
+    </table>
+      
+
+    
+    
 
 </body>
 </html>
