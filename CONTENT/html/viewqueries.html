@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View Queries and Answers</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+  <style>
+    /* Dark-themed UI */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #222;
+      color: #fff;
+    }
+    .container {
+      width: 60%;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .query-card {
+      background-color: #333;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .query-card p {
+      margin-bottom: 10px;
+    }
+    .query-card textarea {
+      width: 100%;
+      resize: vertical;
+      background-color: #444;
+      color: #fff;
+      border: 1px solid #666;
+      border-radius: 5px;
+      padding: 5px;
+    }
+    .answer-card {
+      margin-top: 10px;
+      background-color: #555;
+      padding: 8px;
+      border-radius: 5px;
+    }
+    .answer-form {
+      margin-top: 10px;
+    }
+    .answer-form input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .answer-form input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>View Queries and Answer</h1>
+    <div id="queriesList">
+      <!-- Queries will be displayed here -->
+    </div>
+  </div>
+
+  <script>
+    const queriesListDiv = document.getElementById("queriesList");
+
+    // Get stored queries from localStorage
+    const storedQueries = JSON.parse(localStorage.getItem("queries")) || [];
+
+    // Display stored queries and answer form
+    storedQueries.forEach((data, index) => {
+      const queryElement = document.createElement("div");
+      queryElement.classList.add("query-card");
+      queryElement.innerHTML = `
+        <p>Query:</p>
+        <p>${data.query}</p>
+        <div class="answer-card">
+          <p>Answer:</p>
+          <p>${data.answer}</p>
+        </div>
+        <form class="answer-form" id="answerForm${index}">
+          <label for="answerInput${index}">Your Answer:</label>
+          <textarea id="answerInput${index}" rows="3" cols="50"></textarea>
+          <input type="submit" value="Submit Answer">
+        </form>`;
+      queriesListDiv.appendChild(queryElement);
+
+      // Handle answer submission for each query
+      const answerForm = queryElement.querySelector(`#answerForm${index}`);
+      answerForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const answerText = answerForm.querySelector(`#answerInput${index}`).value;
+        storedQueries[index].answer = answerText;
+        localStorage.setItem("queries", JSON.stringify(storedQueries));
+        const answerCard = queryElement.querySelector('.answer-card > p:last-child');
+        answerCard.textContent = answerText;
+        answerForm.reset();
+      });
+    });
+  </script>
+</body>
+</html>
